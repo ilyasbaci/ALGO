@@ -1,63 +1,41 @@
 #include <stdio.h>
 
-int main () {
-    char chars [4][4] ={ {'a','4','h','6'},
-                         {'9','2','l','z'},
-                         {'5','7','p','4'},
-                         {'y','2','3','b'} 
-                                           };
-   int i , j;
-   i=0; 
-   j=0 ;
-   
-   //printf ('donnez la taille ');
-   //scanf ('%d',&n);
-   for (i=0 ; i<4 ;i++){
-        for (j=0 ; j<4 ;j++){
-       printf ("%c ",chars[i][j]);
-   }  
-       printf("\n");
-   }
-   printf("////////////////// \n");
-       
-     for (i=0 ; i<4 ;i+=2){
-        for (j=0 ; j<4 ;j++){
-       printf ("%c ",chars[i][j]);
-   }  
-       printf("\n");
-   }  
-     printf("////////////////// \n");
-   
-        for (i=0 ; i<4 ;i++){
-        for (j=0 ; j<4 ;j++){
-            if (chars[i][j] % 2 =1){
-       printf ("%c ",chars[i][j]);
-       }
-   }  
-       printf("\n");
-   }  
-     printf("////////////////// \n");
-   
-           for (i=0 ; i<4 ;i++){
-        for (j=0 ; j<4 ;j++){
-            
-       printf ("%c ",chars[j][i]);
-       
-   }  
-       printf("\n");
-   }  
-    printf("////////////////// \n");
-              for (i=0 ; i<4 ;i++){
-        for (j=0 ; j<4 ;j++){
-            
-       printf ("%c ",chars[j][j]);
-       
-   }  
-       printf("\n");
-   }  
-
-
+int main() {
+    int T[10][10];
+    int i , j , save , size;
+    //read inputs from user :
+    printf("enter size of array : ");
+    scanf("%d",&size);
+    for(i = 0 ; i < size ; i++){
+        for(j = 0 ; j < size ; j++){
+         printf("enter T[%d][%d] : ",i,j);
+         scanf("%d",&T[i][j]);
+        }
+    }
+    //print original array :
+    printf("original array :\n\n");
+    for(i = 0 ; i < size ; i++){
+        for(j = 0 ; j < size ; j++){
+         printf("\t%d\t|",T[i][j]);
+        }
+        printf("\n\n");
+    }
+    //reverse the array :
+    for(i = 1 ; i < size ; i++){
+        for(j = 0 ; j < i ; j++){
+         save = T[i][j];
+         T[i][j] = T[j][i];
+         T[j][i] = save;
+        }
+    }
+    //print reversed array :
+    printf("reversed array :\n\n");
+    for(i = 0 ; i < size ; i++){
+        for(j = 0 ; j < size ; j++){
+         printf("\t%d\t|",T[i][j]);
+        }
+        printf("\n\n");
+    }
     
-   
-    return 0 ;
+    return 0;
 }
